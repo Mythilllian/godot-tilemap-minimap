@@ -1,10 +1,11 @@
 extends Camera2D
 
-
-export var speed = 60
-
+@export var speed: float = 60.0
 
 func _process(delta):
-    if get_camera_screen_center().x > 950 or get_camera_screen_center().x < 0:
+    var center_x = get_screen_center().x
+    
+    if center_x > 950 or center_x < 0:
         speed *= -1
-    position.x += speed * delta;
+    
+    position.x += speed * delta
